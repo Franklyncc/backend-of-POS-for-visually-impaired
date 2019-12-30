@@ -1,15 +1,22 @@
 # backend-of-POS-for-visually-impaired
 The official document of the point-of-sale system for the visually impaired designed for 甜裡開始
 
+
+## Roles
+* admin account: /report, /admin, /order, /queue, /checkin, /home
+* employ account: /order, /queue, /checkin, /home
+* guest account: /order, /home
+
+
 ## API
-### session
+### session management
 * POST pos/users/
 
     * Function: Get user list
     * Request Format: form data
     * Parameter:
         token: "some secret"
-    * Example: 
+    * Example: (in jQuery)
     
         ```
         $.post( "pos/users/", { token: "some secret"}, function(data){console.log(data);});
@@ -27,7 +34,7 @@ The official document of the point-of-sale system for the visually impaired desi
     * Parameter:
         username: var string
         password: var string
-    * Example: 
+    * Example:  (in jQuery)
         ```
         $.post( "pos/signin/", { username: "guest", password: "aabbaabbaabb" }, function(data){console.log(data);} );
         
@@ -100,7 +107,7 @@ The official document of the point-of-sale system for the visually impaired desi
         
         id: OrderID，int
 
-    * Example:
+    * Example: (in jQuery)
     ```
     $.post( "pos/completeOrder/",{id:'1' }, function(data){console.log(data);} );
     ```
